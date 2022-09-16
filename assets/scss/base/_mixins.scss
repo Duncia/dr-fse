@@ -22,3 +22,9 @@
         @content
     };
 }
+//Screen size 1024px
+@mixin mobileMenu {
+    @media only screen and (max-width: 64em) { 
+        @content
+    };
+}

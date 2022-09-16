@@ -1,0 +1,165 @@
+.header{
+    background-color: $color-white;
+    color: $color-grey;
+    padding: 0.5rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    @include desktop {
+        padding: 2rem;
+        width: 30rem;
+        padding-left: 3rem;
+        min-height: 100vh;
+        overflow-y: scroll;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        height: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    };
+    &::-webkit-scrollbar { /* WebKit */
+        width: 0;
+        height: 0;
+    }
+    &__logo{
+        max-width: 4rem;
+        height: auto;
+        cursor: pointer;
+        @include desktop {
+            max-width: 7rem;
+            margin-bottom: 2rem;
+        };
+    }
+    &__nav{
+        display: block;
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        @include desktop {
+            display: block;
+            position: relative;
+            left: 0;
+        };
+        ul {
+            list-style: none;
+            display: block;
+            li {
+                font-size: 2rem;
+                padding-bottom: 2rem;
+            }
+            li:hover{
+                color: $color-black;
+            }
+        }
+    }
+    &__nav--mobile{
+        @include mobileMenu{
+            display: block;
+            position: fixed;
+            transition: all .5s;
+            background-color: $color-white;
+            left: 0;
+            top: 7rem;
+            padding: 2rem;
+            min-width: 25rem;
+            height: 100vh;
+            overflow-y: scroll;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            &::-webkit-scrollbar { /* WebKit */
+                width: 0;
+                height: 0;
+            }
+            ul{
+                padding-top: 1rem;
+                padding-bottom: 7rem;
+            }
+        }
+    }
+    &__social{
+        display: flex;
+        margin: 2rem 0rem;
+        .social__svg{
+            margin-right: 1rem;
+            .linkedin{
+                width: 2rem;
+            }
+            .github{
+                width: 2.5rem;
+            }           
+            .social__svg--icon{
+                fill: $color-light-grey;
+            }
+            .social__svg--icon:hover{
+                fill:$color-grey;
+            }
+        }       
+    }
+}
+.burger{
+    width: 3rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    @include desktop {
+        display: none;
+    };
+    &__middle{
+        position: relative;
+        transition: all .2s;  
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 3px;
+            background-color: $color-black;
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            transition: all .5s;
+        }
+        &::before {
+            top: -8px;
+        }
+        &::after {
+            top: 8px;
+        }
+    }
+    &__middle--active {
+        background-color: transparent !important;
+        &::before {
+            top: 0 !important;
+            transform: rotate(45deg);
+            transition: all .5s;
+        }
+        &::after {
+            top: 0 !important;
+            transform: rotate(-45deg);
+            transition: all .5s;
+        }
+    }
+    &__text{
+        margin-left: 4rem;
+        position: absolute;
+        p {
+            color: $color-black;
+        }
+    }
+}
+.burger:hover > .burger__middle, .burger:hover > .burger__middle::before, .burger:hover > .burger__middle::after {
+    background-color: $color-grey;
+    transition: all 0s;
+}
+.burger:hover > .burger__text p{
+    color: $color-grey;
+}

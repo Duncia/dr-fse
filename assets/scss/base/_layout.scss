@@ -1,0 +1,14 @@
+.container{
+    width: 100%;
+    &--p300{
+        @include desktop {
+            padding-left: 30rem;
+        }; 
+    }
+    &--p50-top{
+        padding-top: 7rem;
+        @include desktop {
+            padding-top: 0rem;
+        }; 
+    }
+}
