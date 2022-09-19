@@ -1,6 +1,13 @@
 class HomePage {
     constructor(){
-        console.log("veikia");
+        this.footerYear = document.querySelector("#footer-year");
+        this.showYear();
+    }
+
+    showYear(){
+        const d = new Date();
+        let yearNow = d.getFullYear();
+        this.footerYear.innerHTML = `@ ${yearNow}`;
     }
 }
 export default HomePage;

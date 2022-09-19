@@ -1,0 +1,42 @@
+.footer{
+    background-color: $color-white;
+    color: $color-grey;
+
+    &__nav{
+        
+        ul {
+            list-style: none;
+            display: block;
+            max-width: 50rem;
+            @include tablet {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+                grid-gap: 1.5rem;
+            };
+            li {
+                font-size: 1.6rem;
+                @include smallLaptop {
+                    font-size: 1.4rem;
+                };
+                margin-bottom: 3rem;
+                a:hover{
+                    color: $color-black;
+                }
+            }
+        }
+    }
+    &__text p{
+        font-size: 1.6rem;
+        @include smallLaptop {
+            font-size: 1.4rem;
+        };
+        line-height: 1.2;
+    }
+}
+.footer__nav ul li .sub-menu {
+    display: block;
+    margin-top: 1rem;
+    li {
+        margin-bottom: 1rem;
+    }
+}

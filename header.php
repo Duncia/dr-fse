@@ -28,7 +28,13 @@ Website HEADER part.
             <ul>
                 <li><a href="wwww.delfi.lt">Home</a></li>
                 <li><a href="wwww.delfi.lt">About</a></li>
-                <li><a href="wwww.delfi.lt">Services</a></li>
+                <li><a>Services</a>
+                    <ul class="sub-menu">
+                        <li><a href="wwww.delfi.lt">Web development</a></li>
+                        <li><a href="wwww.delfi.lt">Admin works</a></li>
+                        <li><a href="wwww.delfi.lt">Content</a></li>
+                    </ul>
+                </li>
                 <li><a href="wwww.delfi.lt">Information</a></li>
                 <li><a href="wwww.delfi.lt">Contact</a></li>
             </ul>
