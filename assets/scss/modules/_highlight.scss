@@ -1,0 +1,49 @@
+.highlight{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    @include smallLaptop {
+        grid-template-columns: 2fr 1fr;
+        max-width: 120rem;
+    };
+    row-gap: 1rem;
+
+    &__img{
+        img{
+            aspect-ratio: 2 / 1;
+            object-fit: cover;
+            object-position: 0 0;
+            transition: all 2s;
+        }
+        img:hover{
+            object-position: 0 100%;
+            transition: all 2s;
+        }
+    }
+    &__box{
+        background-color: $color-white;
+        padding: 3rem;
+        box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 15%);
+        margin-left: 0;
+        @include smallLaptop {
+            margin-left: -20%;
+        };
+    }
+}
+.highlight--reversed{
+    @include smallLaptop {
+        grid-template-columns: 1fr 2fr;
+    };
+    .highlight__img{
+        order: 2;
+    }
+    .highlight__box{
+        order: 3;
+        @include smallLaptop {
+            order: 1;
+            margin-left: auto;
+            width: 120%;
+            z-index: 10;
+        };
+    }
+}

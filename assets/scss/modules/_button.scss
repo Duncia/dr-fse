@@ -1,0 +1,18 @@
+/*Basic button styles for the website*/
+.btn {
+    text-decoration: none;
+    outline: none;
+    min-width: 12rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 1rem 3rem;
+    text-align: center;
+    border: solid 1px $color-black;
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover{
+        background-color: $color-black;
+        color: $color-white;
+    }
+}

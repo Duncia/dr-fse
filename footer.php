@@ -17,7 +17,7 @@
             </li>     
         </ul>
         <div class="footer__text pb-md">
-            <p><span id="footer-year"></span> | Robke Dunčia</p>
+            <p><span id="footer-year"></span> | Robkė Dunčia</p>
         </div>
     </section>
 </footer>

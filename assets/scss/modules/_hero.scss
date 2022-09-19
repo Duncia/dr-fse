@@ -1,0 +1,30 @@
+.hero{
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 60rem;
+    @include smallLaptop {
+        grid-template-columns: 2fr 1fr;
+        max-width: 120rem;
+    };
+    row-gap: 2rem;
+    column-gap: 2rem;
+    padding-top: 7rem;
+
+    &__left{
+        padding: 1rem;
+        max-width: 60rem;
+    }
+    &__right{
+        padding: 1rem;
+        max-width: 30rem;
+        text-align: left;
+        @include smallLaptop {
+            text-align: right;
+        };
+        h4{
+            text-transform: uppercase;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+    }
+}

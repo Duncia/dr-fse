@@ -1,0 +1,14 @@
+.explanation{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    @include smallLaptop {
+        grid-template-columns: 1fr 1fr;
+        max-width: 120rem;
+    };
+    row-gap: 2rem;
+
+    & > * {
+        padding: 2rem;
+    }
+}

@@ -16,4 +16,11 @@
         margin: auto;
         padding: 0rem 1rem;
     }
+    &__hero-top{
+        background-image: url("/img/home-bg.svg");
+        background-repeat: no-repeat;
+        background-position: top right;
+        width: 100%;
+        min-height: 36rem;
+    }
 }
