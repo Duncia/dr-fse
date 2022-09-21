@@ -9,6 +9,10 @@ function drfse_setup(){
     add_theme_support('woocommerce');
     //Load translations in languages folder
     load_theme_textdomain( 'drfse', get_template_directory() . '/languages' );
+    //Custom block CSS
+    add_theme_support('editor-styles');
+    add_editor_style(array('build/style-index.css', 'build/index.css'));
+
 }
 add_action('after_setup_theme', 'drfse_setup');
 
@@ -32,3 +36,20 @@ function cc_mime_types($mimes) {
     return $mimes;
   }
 add_filter('upload_mimes', 'cc_mime_types');
+
+//Register custom blocks
+class DrJsxBlock{
+  function __construct($name){
+    $this->name = $name;
+    add_action('init', [$this, 'onInit']);
+  }
+  function onInit(){
+    wp_register_script($this->name, get_stylesheet_directory_uri()."/build/{$this->name}.js", array('wp-blocks', 'wp-editor'));
+    register_block_type("dr-blocks/{$this->name}", array(
+      'editor_script' => $this->name
+  ));
+  }
+}
+
+new DrJsxBlock('highlight-txt-right');
+new DrJsxBlock('explanation');

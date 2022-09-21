@@ -4,8 +4,8 @@
   "description": "WP Theme FSE",
   "main": "index.js",
   "scripts": {
-    "build": "wp-scripts build",
-    "start": "wp-scripts start",
+    "build": "wp-scripts build src/index.js dr-blocks/highlight-txt-right.js dr-blocks/explanation.js",
+    "start": "wp-scripts start src/index.js dr-blocks/highlight-txt-right.js dr-blocks/explanation.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/Duncia/dr-fse#readme",
   "devDependencies": {
     "@wordpress/scripts": "^24.1.0"
+  },
+  "dependencies": {
+    "@wordpress/icons": "^9.8.0"
   }
 }
