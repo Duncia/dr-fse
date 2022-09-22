@@ -39,17 +39,49 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 //Register custom blocks
 class DrJsxBlock{
+  function __construct($name, $renderCallback = null){
+    $this->name = $name;
+    $this->renderCallback = $renderCallback;
+    add_action('init', [$this, 'onInit']);
+  }
+  function blockRenderCallback($attributes, $content) {
+    ob_start();
+    require get_theme_file_path("/dr-blocks/{$this->name}.php");
+    return ob_get_clean();
+  }
+  function onInit(){
+    wp_register_script($this->name, get_stylesheet_directory_uri()."/build/{$this->name}.js", array('wp-blocks', 'wp-editor'));
+    $blockArgs = array(
+      'editor_script' => $this->name
+    );
+    if($this->renderCallback){
+      $blockArgs['render_callback'] = [$this, 'blockRenderCallback'];
+    };
+    register_block_type("dr-blocks/{$this->name}", $blockArgs);
+  }
+}
+
+new DrJsxBlock('highlight-txt-right', true);
+new DrJsxBlock('explanation', true);
+new DrJsxBlock('hero', true);
+
+class DrPlaceholderBlock{
   function __construct($name){
     $this->name = $name;
     add_action('init', [$this, 'onInit']);
   }
+  function blockRenderCallback($attributes, $content) {
+    ob_start();
+    require get_theme_file_path("/dr-blocks/{$this->name}.php");
+    return ob_get_clean();
+  }
   function onInit(){
-    wp_register_script($this->name, get_stylesheet_directory_uri()."/build/{$this->name}.js", array('wp-blocks', 'wp-editor'));
+    wp_register_script($this->name, get_stylesheet_directory_uri()."/dr-blocks/{$this->name}.js", array('wp-blocks', 'wp-editor'));
     register_block_type("dr-blocks/{$this->name}", array(
-      'editor_script' => $this->name
-  ));
+      'editor_script' => $this->name,
+      'render_callback' => [$this, 'blockRenderCallback']
+    ));
   }
 }
-
-new DrJsxBlock('highlight-txt-right');
-new DrJsxBlock('explanation');
+new DrPlaceholderBlock("header");
+new DrPlaceholderBlock("footer");

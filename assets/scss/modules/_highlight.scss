@@ -28,6 +28,9 @@
         @include smallLaptop {
             margin-left: -20%;
         };
+        .btn{
+            margin-top: 2rem;
+        }
     }
 }
 .highlight--reversed{

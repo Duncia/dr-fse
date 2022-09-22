@@ -48,7 +48,7 @@ function EditComponent(props){
                     <RichText allowedFormats={["core/bold", "core/italic"]} tagName="p" className="pb-sm" value={props.attributes.subtitle} onChange={handleTextChange} placeholder={"Paragraph text"}/>        
                     <RichText allowedFormats={["core/bold", "core/italic"]} tagName="a" className="btn" value={props.attributes.buttonText} onChange={(val) => {props.setAttributes({buttonText: val})}} placeholder={"Button text"}/>
                     {isLinkPickerVisible && (
-                        <Popover position="middle center">
+                        <Popover position="middle center" onFocusOutside={() => setIsLinkPickerVisible(false)}>
                             <LinkControl settings={[{
 							id: 'opensInNewTab',
 							title: 'New tab?',
@@ -67,22 +67,5 @@ function EditComponent(props){
 }
 
 function SaveComponent(props){
-    let openNT = ""
-    if(props.attributes.linkObject.opensInNewTab){
-        openNT = "_blank"
-    } 
-    return (
-        <section className="container container--p300">
-            <div className="container__inner explanation pb-lr">
-                <div className="explanation__left">
-                    <RichText.Content tagName="h3" className="pb-sm" value={props.attributes.title}/>
-                    <RichText.Content tagName="p" className="pb-sm" value={props.attributes.subtitle}/>
-                    {props.attributes.linkObject && <a href={props.attributes.linkObject.url} className={"btn"} target={openNT} rel="noreferrer noopener">{props.attributes.buttonText}</a>}
-                </div>
-                <div className="explanation__right txt-center">
-                    <RichText.Content tagName="h4" className="pb-sm" value={props.attributes.description}/>
-                </div>
-            </div>
-        </section>
-    )
+    return null
 }

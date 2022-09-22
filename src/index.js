@@ -7,4 +7,4 @@ import HeaderMenu from "../assets/js/HeaderMenu";
 
 //Instantiate new object using modules and classes
 const homePage = new HomePage();
-//const headerMenu = new HeaderMenu();
+const headerMenu = new HeaderMenu();
