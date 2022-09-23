@@ -12,7 +12,7 @@ if(isset($attributes["linkObject"]["opensInNewTab"]) && $attributes["linkObject"
 ?>
 
 <section class="container container--p300">
-    <div class="container__inner highlight pb-lr">
+    <div class="container__inner highlight <?php if(isset($attributes["imgClass"])) {echo $attributes["imgClass"];}; ?> pb-lr">
         <div class="highlight__img">
             <img width="600" height="300" 
             srcset="<?php echo $attributes['imgUrlMobile']; ?> 480w, <?php echo $attributes['imgUrl']; ?> 768w" alt="Laptop" />

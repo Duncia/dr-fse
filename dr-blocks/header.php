@@ -1,3 +1,7 @@
+<?php
+global $post;
+$currentId = $post->ID;
+?>
 <header class="header">
         <div class="header__burger burger" id="burger">
             <div class="burger__middle" id="burger__middle"></div>
@@ -20,6 +24,11 @@
                 <li><a href="wwww.delfi.lt">Information</a></li>
                 <li><a href="wwww.delfi.lt">Contact</a></li>
             </ul>
+            <ul>
+                <?php if(get_field('language') && get_field('url')): ?>
+                    <li><a href="<?php the_field('url'); ?>"><?php the_field('language'); ?></a></li>
+                <?php endif; ?>
+                </ul>
         </div>
         <div class="header__social social">
             <div class="social__svg">

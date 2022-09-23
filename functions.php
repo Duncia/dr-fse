@@ -64,6 +64,7 @@ class DrJsxBlock{
 new DrJsxBlock('highlight-txt-right', true);
 new DrJsxBlock('explanation', true);
 new DrJsxBlock('hero', true);
+new DrJsxBlock('hero-page', true);
 
 class DrPlaceholderBlock{
   function __construct($name){

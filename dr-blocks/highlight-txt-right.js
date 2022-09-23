@@ -1,7 +1,7 @@
 import {link} from "@wordpress/icons"
 import DesktopPlaceHolderImage from "../img/desktop-placeholder.jpg"
 import MobilePlaceHolderImage from "../img/mobile-placeholder.jpg"
-import {ToolbarGroup, ToolbarButton, Popover, Button, PanelBody, PanelRow} from "@wordpress/components"
+import {ToolbarGroup, ToolbarButton, Popover, Button, PanelBody, PanelRow, FormToggle} from "@wordpress/components"
 import {RichText, InspectorControls, MediaUpload, MediaUploadCheck, BlockControls, __experimentalLinkControl as LinkControl } from "@wordpress/block-editor"
 import {useState} from "@wordpress/element"
 
@@ -15,7 +15,8 @@ wp.blocks.registerBlockType("dr-blocks/highlight-txt-right", {
         imgUrl: {type: "string", default: DesktopPlaceHolderImage},
         imgUrlMobile: {type: "string", default: MobilePlaceHolderImage},
         buttonText: {type: "string"},
-        linkObject: { type: "object" }
+        linkObject: { type: "object" },
+        imgClass: {type: "string", default: ""}
     },
     edit: EditComponent,
     save: SaveComponent
@@ -23,6 +24,7 @@ wp.blocks.registerBlockType("dr-blocks/highlight-txt-right", {
 
 function EditComponent(props){
     const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false)
+    const [isChecked, setChecked] = useState( true );
     function handleTitleChange(val){
         props.setAttributes({title: val})
     }
@@ -43,6 +45,14 @@ function EditComponent(props){
     function handleLinkChange(newLink) {
         props.setAttributes({ linkObject: newLink })
     }
+    function handleImagePosition() {
+        setChecked(prev => !prev)
+        if(isChecked){
+            props.setAttributes({ imgClass: "highlight--reversed" })
+        } else {
+            props.setAttributes({ imgClass: "" })
+        } 
+    }
     return(
         <>
             <InspectorControls>
@@ -61,6 +71,13 @@ function EditComponent(props){
                             }} />
                         </MediaUploadCheck>
                     </PanelRow>
+                    <PanelRow><p>Image position</p></PanelRow>
+                    <PanelRow>
+                        <FormToggle
+                            checked={ isChecked }
+                            onChange={handleImagePosition}
+                        />
+                    </PanelRow>
                 </PanelBody>
             </InspectorControls>
             <BlockControls>
@@ -69,7 +86,7 @@ function EditComponent(props){
                 </ToolbarGroup>
             </BlockControls>
             <section className="container container--p300">
-                <div className="container__inner highlight pb-lr">
+                <div className={`"container__inner highlight ${props.attributes.imgClass} pb-lr"`} >
                     <div className="highlight__img">
                         <img width="600" height="300" 
                         srcSet={`${props.attributes.imgUrlMobile} 480w, ${props.attributes.imgUrl} 768w`}
