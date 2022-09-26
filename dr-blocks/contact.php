@@ -5,17 +5,14 @@ if(isset($attributes["linkObject"]["opensInNewTab"]) && $attributes["linkObject"
 };
 ?>
 <section class="container container--p300 <?php echo $attributes["className"]; ?>">
-    <div class="container__inner explanation pb-lr">
-        <div class="explanation__left">
-            <h3 class="pb-sm"><?php if(isset($attributes["title"])) {echo $attributes["title"];}; ?></h3>
-            <p class="pb-sm"><?php if(isset($attributes["subtitle"])) {echo $attributes["subtitle"];}; ?></p>
+    <div class="container__inner contact">
+        <div class="contact__left">
+            <h3><?php if(isset($attributes["title"])) {echo $attributes["title"];}; ?></h3>
+        </div>
+        <div class="contact__right txt-center">
             <?php if(isset($attributes["buttonText"]) && $attributes["buttonText"] != ""): ?>
             <a href="<?php if(isset($attributes["linkObject"]["url"])) {echo $attributes["linkObject"]["url"];}; ?>" target="<?php echo $openInNewTab; ?>" class="btn"><?php echo $attributes["buttonText"]; ?></a>
             <?php endif; ?>
-            
-        </div>
-        <div class="explanation__right txt-center">
-            <h4 class="pb-sm"><?php if(isset($attributes["description"])) {echo $attributes["description"];}; ?></h4>
         </div>
     </div>
 </section>

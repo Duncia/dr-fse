@@ -2,7 +2,7 @@ import {link} from "@wordpress/icons"
 import DesktopPlaceHolderImage from "../img/desktop-placeholder.jpg"
 import MobilePlaceHolderImage from "../img/mobile-placeholder.jpg"
 import {ToolbarGroup, ToolbarButton, Popover, Button, PanelBody, PanelRow, FormToggle} from "@wordpress/components"
-import {RichText, InspectorControls, MediaUpload, MediaUploadCheck, BlockControls, __experimentalLinkControl as LinkControl } from "@wordpress/block-editor"
+import {RichText, InspectorControls, MediaUpload, MediaUploadCheck, BlockControls, __experimentalLinkControl as LinkControl, useBlockProps } from "@wordpress/block-editor"
 import {useState} from "@wordpress/element"
 
 wp.blocks.registerBlockType("dr-blocks/highlight-txt-right", {

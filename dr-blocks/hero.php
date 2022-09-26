@@ -1,4 +1,4 @@
-<section class="container container--p300 container--p50-top container__hero-top">
+<section class="container container--p300 container--p50-top container__hero-top <?php echo $attributes["className"]; ?>">
     <div class="container__inner hero">
         <div class="hero__left">
             <?php if(isset($attributes["titleSmall"]) && $attributes["titleSmall"] != ""): ?>

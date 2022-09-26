@@ -11,7 +11,7 @@ if(isset($attributes["linkObject"]["opensInNewTab"]) && $attributes["linkObject"
 };
 ?>
 
-<section class="container container--p300">
+<section class="container container--p300 <?php echo $attributes["className"]; ?>">
     <div class="container__inner highlight <?php if(isset($attributes["imgClass"])) {echo $attributes["imgClass"];}; ?> pb-lr">
         <div class="highlight__img">
             <img width="600" height="300" 

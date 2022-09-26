@@ -12,6 +12,9 @@ function drfse_setup(){
     //Custom block CSS
     add_theme_support('editor-styles');
     add_editor_style(array('build/style-index.css', 'build/index.css'));
+    //Register menu
+    register_nav_menu('header-meniu', 'Header');
+    register_nav_menu('footer-meniu', 'Footer');
 
 }
 add_action('after_setup_theme', 'drfse_setup');
@@ -65,6 +68,7 @@ new DrJsxBlock('highlight-txt-right', true);
 new DrJsxBlock('explanation', true);
 new DrJsxBlock('hero', true);
 new DrJsxBlock('hero-page', true);
+new DrJsxBlock('contact', true);
 
 class DrPlaceholderBlock{
   function __construct($name){

@@ -12,3 +12,27 @@
         padding: 2rem;
     }
 }
+.home-page-el {
+    &--hide {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    &--reveal {
+        transition: transform 1s, opacity 1s;
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home--animation {
+    animation: fadeInAnimation ease 1s;
+}

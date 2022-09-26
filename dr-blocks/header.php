@@ -1,25 +1,15 @@
 <header class="header">
         <div class="header__burger burger" id="burger">
             <div class="burger__middle" id="burger__middle"></div>
-            <div class="burger__text"><p>Menu</p></div>
+            <div class="burger__text"><p><?php _e('Menu', 'drfse'); ?></p></div>
         </div>
         <div class="header__logo">
             <img width="60" height="90" src="<?php echo get_template_directory_uri() . '/img/logo-dr-desktop.svg'; ?>" alt="Logo">
         </div>
         <div class="header__nav" id="header__nav">
-            <ul>
-                <li><a href="wwww.delfi.lt">Home</a></li>
-                <li><a href="wwww.delfi.lt">About</a></li>
-                <li><a>Services</a>
-                    <ul class="sub-menu">
-                        <li><a href="wwww.delfi.lt">Web development</a></li>
-                        <li><a href="wwww.delfi.lt">Admin works</a></li>
-                        <li><a href="wwww.delfi.lt">Content</a></li>
-                    </ul>
-                </li>
-                <li><a href="wwww.delfi.lt">Information</a></li>
-                <li><a href="wwww.delfi.lt">Contact</a></li>
-            </ul>
+            <?php $args = array(
+                'theme_location' => 'header-meniu');
+                wp_nav_menu($args); ?>
         </div>
         <div class="header__social social">
             <div class="social__svg">

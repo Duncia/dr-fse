@@ -4,8 +4,8 @@
   "description": "WP Theme FSE",
   "main": "index.js",
   "scripts": {
-    "build": "wp-scripts build src/index.js dr-blocks/highlight-txt-right.js dr-blocks/explanation.js dr-blocks/hero.js dr-blocks/hero-page.js",
-    "start": "wp-scripts start src/index.js dr-blocks/highlight-txt-right.js dr-blocks/explanation.js dr-blocks/hero.js dr-blocks/hero-page.js",
+    "build": "wp-scripts build src/index.js dr-blocks/highlight-txt-right.js dr-blocks/explanation.js dr-blocks/hero.js dr-blocks/hero-page.js dr-blocks/contact.js",
+    "start": "wp-scripts start src/index.js dr-blocks/highlight-txt-right.js dr-blocks/explanation.js dr-blocks/hero.js dr-blocks/hero-page.js dr-blocks/contact.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
